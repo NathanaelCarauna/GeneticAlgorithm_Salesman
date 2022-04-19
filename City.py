@@ -1,4 +1,5 @@
 import numpy as np
+import haversine as hs
 
 
 class City:
@@ -10,7 +11,7 @@ class City:
     def distance(self, city):
         xDis = abs(self.x - city.x)
         yDis = abs(self.y - city.y)
-        distance = np.sqrt((xDis ** 2) + (yDis ** 2))
+        distance = hs.haversine((self.x, self.y), (city.x, city.y), unit='km')
         return distance
 
     def __repr__(self):

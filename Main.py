@@ -201,7 +201,7 @@ def geneticAlgorithmPlot(population, popSize, eliteSize, mutationRate, generatio
 
     #Gerar gráfico
     plt.plot(progress)
-    plt.ylabel('Distance')
+    plt.ylabel('Distance (KM)')
     plt.xlabel('Generation')
     plt.show()
 
@@ -224,5 +224,5 @@ cityList.append(City("Can", -8.88060320904562, -36.18900509300881))   #Canhotinh
 cityList.append(City("BC", -9.1771628800083, -36.673635354939094))    #Bom Conselho
 cityList.append(City("AB", -9.107737294857102, -37.1145538677541))    #Águas Belas
 
-geneticAlgorithmPlot(population=cityList, popSize=100, eliteSize=5, mutationRate=0.01, generations=100)
+geneticAlgorithmPlot(population=cityList, popSize=100, eliteSize=10, mutationRate=0.01, generations=100)
 
