@@ -15,4 +15,4 @@ class City:
         return distance
 
     def __repr__(self):
-        return self.name + "(" + str(self.x) + "," + str(self.y) + ")"
+        return self.name #+ "(" + str(self.x) + "," + str(self.y) + ")"

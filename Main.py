@@ -89,7 +89,7 @@ def breedPopulation(matingpool, eliteSize):
     #Aplicar elitismo
     for i in range(0, eliteSize):
         children.append(matingpool[i])
-    print("5 individuos selecionados para persistir")
+    print(f"%s individuos selecionados para persistir" %eliteSize)
 
     print("Gerando filhos")
     #Gerar filhos
@@ -155,7 +155,8 @@ def geneticAlgorithmPlot(population, popSize, eliteSize, mutationRate, generatio
 
     #Gerar população inicial (rotas)
     pop = initialPopulation(popSize, population)
-
+    for route in pop:
+        print(route)
     progress = []
     progress.append(1 / rankRoutes(pop)[0][1])
 
@@ -192,11 +193,13 @@ def geneticAlgorithmPlot(population, popSize, eliteSize, mutationRate, generatio
         if countToBreak == 10:
             print("Limite de 10 gerações com mesmo resultado alcançado.")
             print("Encerrando processamento")
-            # print()
-            # print("Melhor rota encontrada:")
-            # print("\t", end="")
-            # for item in range(0, len(rankedRoutes[0][1])):
-            #     print(item.)
+            print()
+            print("Melhor rota encontrada:")
+            print("\t", end="")
+            print(pop[0])
+            print("Menor distância:")
+            print("\t", end="")
+            print(str(progress[-1]) + "KM")
             break
 
     #Gerar gráfico
@@ -208,21 +211,21 @@ def geneticAlgorithmPlot(population, popSize, eliteSize, mutationRate, generatio
 # Seleção de cidades com coordenadas reais
 cityList = []
 
-cityList.append(City("SBU", -8.51825331291702, -36.459560389017874))  #São bento do una
-cityList.append(City("BJ", -8.329911388442437, -36.41037469340696))   #Belo Jardim
-cityList.append(City("Pe", -8.355028928564858, -36.68168933693814))   #Pesqueira
-cityList.append(City("SJ", -8.464899091221097, -36.78323399884455))   #São josé
-cityList.append(City("Ve", -8.577875694823003, -36.859392495274356))  #Venturosa
-cityList.append(City("Cap", -8.737868277249483, -36.60711747585063))  #Capoeiras
-cityList.append(City("Ga", -8.891869402244335, -36.48548478266028))   #Garanhuns
-cityList.append(City("La", -8.655207219573613, -36.31443880786136))   #Lajedo
-cityList.append(City("Car", -8.271725918653804, -35.989451455743406)) #Caruaru
-cityList.append(City("Ag", -8.454115125349727, -35.93053561997933))   #Agrestina
-cityList.append(City("Ag", -8.454115125349727, -35.93053561997933))   #Agrestina
-cityList.append(City("Ca", -8.664601439153888, -35.71577789606512))   #Catende
-cityList.append(City("Can", -8.88060320904562, -36.18900509300881))   #Canhotinho
-cityList.append(City("BC", -9.1771628800083, -36.673635354939094))    #Bom Conselho
-cityList.append(City("AB", -9.107737294857102, -37.1145538677541))    #Águas Belas
+cityList.append(City("São bento do una", -8.51825331291702, -36.459560389017874))  #São bento do una
+cityList.append(City("Belo Jardim", -8.329911388442437, -36.41037469340696))   #Belo Jardim
+cityList.append(City("Pesqueira", -8.355028928564858, -36.68168933693814))   #Pesqueira
+cityList.append(City("São josé", -8.464899091221097, -36.78323399884455))   #São josé
+cityList.append(City("Venturosa", -8.577875694823003, -36.859392495274356))  #Venturosa
+cityList.append(City("Capoeiras", -8.737868277249483, -36.60711747585063))  #Capoeiras
+cityList.append(City("Garanhuns", -8.891869402244335, -36.48548478266028))   #Garanhuns
+cityList.append(City("Lajedo", -8.655207219573613, -36.31443880786136))   #Lajedo
+cityList.append(City("Caruaru", -8.271725918653804, -35.989451455743406)) #Caruaru
+cityList.append(City("Agrestina", -8.454115125349727, -35.93053561997933))   #Agrestina
+cityList.append(City("União dos Palmares", -9.152453449605217, -36.02609682433778))   #União dos Palmares
+cityList.append(City("Catende", -8.664601439153888, -35.71577789606512))   #Catende
+cityList.append(City("Canhotinho", -8.88060320904562, -36.18900509300881))   #Canhotinho
+cityList.append(City("Bom Conselho", -9.1771628800083, -36.673635354939094))    #Bom Conselho
+cityList.append(City("Águas Belas", -9.107737294857102, -37.1145538677541))    #Águas Belas
 
 geneticAlgorithmPlot(population=cityList, popSize=100, eliteSize=10, mutationRate=0.01, generations=100)
 
